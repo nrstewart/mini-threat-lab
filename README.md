@@ -34,9 +34,9 @@ All simulated targets are running as docker containers on the host using the edg
 # Steps
 1. Create docker networks for attack services and the simulated target environments.
 2. Create Multi-Purpose Edge Security Device as a virtual machine in its own subnets. The virtual machine will require at least three separate interfaces and unique subnets for each:
-  1. The attack interface is a simulated WAN (Internet-facing) port and should be configured with a "real" publicly routeable IP address to permit the attack services to function correctly with minimal configuration.
-  2. The targets interface is the gateway for all simulated targets to access "the internet" via the edge security device, with all traffic forwarded to and from the attack interface.
-  3. The out-of-band interface(s) is/are for the operator to access the edge security device.
+    1. The attack interface is a simulated WAN (Internet-facing) port and should be configured with a "real" publicly routeable IP address to permit the attack services to function correctly with minimal configuration.
+    2. The targets interface is the gateway for all simulated targets to access "the internet" via the edge security device, with all traffic forwarded to and from the attack interface.
+    3. The out-of-band interface(s) is/are for the operator to access the edge security device.
 3. Create static routes on the host to route traffic from the edge security device to the docker networks. Create separate routes to allow the operator to connect to the edge security device out-of-band from the docker networks.
 4. Deploy defensive and monitoring services on edge security device.
 5. Deploy targets into simulated target environment.
