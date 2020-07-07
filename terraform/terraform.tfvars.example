@@ -1,0 +1,11 @@
+user-project-tenant = ""
+password = ""
+region = "<yyc|yeg>"
+
+flavor = "m1.small"
+image = "Ubuntu 18.04"
+keypair = ""
+
+private_key_path = "~/.ssh/id_rsa"
+
+domain = ""
