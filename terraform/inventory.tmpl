@@ -1,0 +1,19 @@
+[security]
+${security-dns} ansible_host=${security-ipv6}
+
+[attack]
+${attack-dns} ansible_host=${attack-ipv6}
+
+[target]
+${target-dns} ansible_host=${target-ipv6}
+
+[all:children]
+security
+attack
+target
+
+[all:vars]
+ansible_user=${ansible-user}
+ansible_private_key_file=${private-key-path}
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+ansible_python_interpreter=/usr/bin/python3

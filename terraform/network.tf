@@ -3,17 +3,6 @@ resource "openstack_networking_network_v2" "attack-net" {
   admin_state_up = "true"
 }
 
-data "openstack_dns_zone_v2" "zone" {
-  name = "dev.syndicatestack.io."
-}
-
-resource "openstack_dns_recordset_v2" "security" {
-  name    = "mpsd.dev.syndicatestack.io."
-  type    = "AAAA"
-  ttl     = "60"
-  zone_id = data.openstack_dns_zone_v2.zone.id
-  records = [openstack_compute_instance_v2.security.access_ip_v6]
-}
 resource "openstack_networking_subnet_v2" "attack-subnet" {
   name       = "attack"
   network_id = openstack_networking_network_v2.attack-net.id

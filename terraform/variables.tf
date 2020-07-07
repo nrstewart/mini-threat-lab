@@ -5,3 +5,4 @@ variable "flavor" {}
 variable "keypair" {}
 variable "private_key_path" {}
 variable "image" {}
+variable "domain" {}

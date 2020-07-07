@@ -22,6 +22,9 @@ resource "openstack_compute_instance_v2" "attack" {
   key_pair        = var.keypair
   security_groups = [openstack_networking_secgroup_v2.secgroup0.name]
   network {
+    name          = "default"
+  }
+  network {
     name          = openstack_networking_network_v2.attack-net.name
     fixed_ip_v4   = "192.168.253.253"
   }
@@ -33,6 +36,9 @@ resource "openstack_compute_instance_v2" "target" {
   flavor_name     = var.flavor
   key_pair        = var.keypair
   security_groups = [openstack_networking_secgroup_v2.secgroup0.name]
+  network {
+    name          = "default"
+  }
   network {
     name          = openstack_networking_network_v2.target-net.name
     fixed_ip_v4   = "192.168.249.253"
