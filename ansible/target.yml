@@ -1,0 +1,11 @@
+---
+- name: Provision Target host.
+  hosts: target
+  become: true
+
+  pre_tasks:
+    - name: Update apt cache and upgrade packages.
+      apt:
+        upgrade: 'yes'
+        update_cache: true
+        cache_valid_time: 3600

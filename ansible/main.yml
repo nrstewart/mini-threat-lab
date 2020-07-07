@@ -1,0 +1,29 @@
+---
+- name: Provision Security host.
+  hosts: security
+  become: true
+
+  pre_tasks:
+    - name: Update apt cache and upgrade packages.
+      apt:
+        upgrade: 'yes'
+        update_cache: true
+        cache_valid_time: 3600
+
+  tasks:
+    - name: Enable network interface for attack network.
+      copy:
+        src: files/60-interfaces.yml
+        dest: /etc/netplan/60-interfaces.yaml
+      notify: apply netplan
+
+  handlers:
+    - name: apply netplan
+      command:
+        netplan apply
+
+- name: Setup Attack Host.
+  import_playbook: attack.yml
+
+- name: Setup Target Host.
+  import_playbook: target.yml

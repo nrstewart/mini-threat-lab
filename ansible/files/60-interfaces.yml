@@ -1,0 +1,11 @@
+network:
+  version: 2
+  ethernets:
+    ens4:
+      dhcp4: true
+      match:
+        name: ens4
+    ens5:
+      dhcp4: true
+      match:
+        name: ens5

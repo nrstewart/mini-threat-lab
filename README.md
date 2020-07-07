@@ -1,6 +1,11 @@
 # mini-threat-lab
 
 # Requirements
+## OpenStack
+1. Access to an OpenStack cloud
+2. Terraform
+3. Ansible
+
 ## macOS
 1. VirtualBox
 2. Docker Desktop
