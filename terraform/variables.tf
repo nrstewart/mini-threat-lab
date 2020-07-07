@@ -6,3 +6,4 @@ variable "keypair" {}
 variable "private_key_path" {}
 variable "image" {}
 variable "domain" {}
+variable "local_user" {}
