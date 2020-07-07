@@ -1,0 +1,16 @@
+---
+- name: Provision Security host.
+  hosts: security
+  become: true
+
+  tasks:
+    - name: Enable network interface for attack network.
+      copy:
+        src: files/60-interfaces.yml
+        dest: /etc/netplan/60-interfaces.yaml
+      notify: apply netplan
+
+  handlers:
+    - name: apply netplan
+      command:
+        netplan apply
